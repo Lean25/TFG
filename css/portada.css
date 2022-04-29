@@ -1,0 +1,244 @@
+*{
+    color: rgb(255, 255, 255);
+}
+body {
+	font-family: 'Playfair Display', serif;
+    display: grid;
+    background-color: #4158D0;
+    background-image: linear-gradient(90deg, #5766b1 0%, #a3599e 46%, #a58c5d 100%);
+
+    align-content: center;
+}
+p {
+	margin: 0;
+}
+.divLogo{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 75px;
+}
+.logo{
+	margin-top: 25px;
+    height: 200px;
+}
+
+#burger-toggle {
+	 position: absolute;
+	 appearance: none;
+	 opacity: 0;
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    opacity: 0;
+    overflow-x: hidden;
+    transition: 0.3s;
+    opacity: 1;
+	visibility: visible;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transform: translate(0,-50%);
+	left: 0;
+    
+}
+.menu-inner{
+    height: 100%;
+}
+@media screen and (max-width: 750px) {
+    .menu {
+        display: block;
+   }
+}
+	 
+ .menu .menu-nav-link span div, .menu img, .menu .title p {
+	 transform: translateY(0);
+	 transition: 1.2s 0.1s cubic-bezier(0.35, 0, 0.07, 1);
+     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+ .menu .image-link:nth-child(1) img {
+	 transition-delay: 0.18s;
+}
+ .menu .image-link:nth-child(2) img {
+	 transition-delay: 0.26s;
+}
+ .menu .image-link:nth-child(3) img {
+	 transition-delay: 0.34s;
+}
+ .menu .image-link:nth-child(4) img {
+	 transition-delay: 0.42s;
+}
+ 
+ .menu-nav {
+	 display: flex;
+	 flex-wrap: wrap;
+	 margin: 0;
+	 padding: 0;
+	 text-align: center;
+	 list-style-type: none;
+}
+ @media screen and (max-width: 750px) {
+	 .menu-nav {
+		 flex-direction: column;
+	}
+}
+ .menu-nav-item {
+	 flex: 1;
+}
+ .menu-nav-link {
+	 position: relative;
+	 display: inline-flex;
+	 font-size: 2rem;
+	 color: white;
+	 text-decoration: none;
+}
+ .menu-nav-link span {
+	 overflow: hidden;
+}
+ .menu-nav-link span div {
+	 transform: translateY(102%);
+}
+ .menu .gallery {
+	 margin-top: 60px;
+	 text-align: center;
+}
+ .menu .title {
+	 font-size: 24px;
+	 color: white;
+	 overflow: hidden;
+}
+ .menu .title p {
+	 font-size: 12px;
+	 letter-spacing: 2px;
+	 text-transform: uppercase;
+	 transform: translateY(102%);
+}
+ .menu .images {
+	 margin-top: 36px;
+	 display: flex;
+	 flex-wrap: wrap;
+}
+ .menu .images .image-link {
+	 width: 20vw;
+	 height: 100%;	
+	 margin: 0 12px;
+	 overflow: hidden;     
+}
+ 
+ .menu .images .image-link .image {
+	 position: relative;
+	 transition: 0.6s;
+     height: 100%;
+}
+ .menu .images .image-link .image::before {
+	 position: absolute;
+	 content: attr(data-label);
+	 top: 0;
+	 left: 0;
+	 z-index: 1;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 width: 100%;
+	 height: 100%;
+	 color: white;
+	 background: rgba(0, 0, 0, 0.6);
+	 opacity: 0;
+	 transition: 0.4s;
+}
+ .menu .images .image-link:hover .image {
+	 transform: scale(1.2);
+}
+ .menu .images .image-link:hover .image::before {
+	 opacity: 1;
+}
+.menu .images img {
+	 height: 250px;
+	 width: 100%;
+	 object-fit: cover;
+}
+
+
+/*effect-underline*/
+a.menu-nav-link:after {
+	content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 2px solid;
+  margin-top: 10px;
+  opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+a.menu-nav-link:hover:after {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media screen and (max-width: 750px) {
+	.menu .images {
+		justify-content: center;
+   }
+   .menu .images img {
+	   height: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+	.menu .images .image-link {
+		width: 40vw;
+		margin: 0 12px 12px 0;
+		height: 40vw;
+   }
+}
+
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
